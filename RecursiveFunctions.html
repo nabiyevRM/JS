@@ -1,0 +1,112 @@
+<<<!DOCTYPE html>
+    <html>
+
+    <head>
+
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            //Task 1.Reverse strings in array.
+            let ms = [3, 4, "Simon", ["Tylor", "Retsu", 5, 66, "Spike", ["Simba", 31, "Timati"], 800, 91, 20]];
+
+            function reverseArray(array) {
+                let strArray = [];
+                for (let str of array) {
+                    if (typeof (str) == "object") {
+                        strArray.push(reverseArray(str));
+                    }
+                    else if (typeof (str) == "string") {
+                        strArray.push(backToFront(str));
+                    }
+
+
+                }
+                return strArray;
+            }
+
+            function backToFront(array) {
+                let result = "";
+                for (let i = array.length - 1; i >= 0; i--) {
+                    result += array[i];
+                }
+                return result;
+            }
+
+            //Task 2.Replace lower vowel letters with upper vowel letters.
+
+            function replaceInArray(array) {
+                let strArray = [];
+                for (let str of array) {
+                    if (typeof (str) == "object") {
+                        strArray.push(replaceInArray(str))
+                    }
+                    else if (typeof (str) == "string") {
+                        strArray.push(replaceVowelLetters(str));
+                    }
+                }
+                return strArray;
+            }
+
+            function replaceVowelLetters(array) {
+                let lowerSymbols = ['a', 'ı', 'o', 'u', 'e', 'ə', 'i', 'ö', 'ü'];
+                let upperSymbols = ['A', 'I', 'O', 'U', 'E', 'Ə', 'İ', 'Ö', 'Ü'];
+                let result="";
+                let find;
+                for(let str in array){
+                    for(let index in lowerSymbols){
+                        if(array[str]==lowerSymbols[index]){
+                            result+=upperSymbols[index];
+                            find=true;
+                            break;
+                        }
+                        else{
+                            find=false;
+                        }
+                    }
+                    if(find==false){
+                        result+=array[str];
+                    }
+                }
+                return result;
+            }
+
+            //Task 3.Replace double numbers with zero.
+
+            function replacedArray(array){
+                let numArray=[];
+                for(let item of array){
+                    if(typeof(item)=="object"){
+                        numArray.push(replaceZero(item));
+                    }
+                    else if(typeof(nums)=="number"){
+                        numArray.push(replaceZero(item));
+                    }
+                    else{
+                        numArray.push(item)
+                    }        
+                }
+                return numArray;
+            }
+
+            function replaceZero(arr){
+                let zero=[];
+                for(let num of arr){
+                    if(num % 2 ==0){
+                        num=0;
+                        zero.push(num);
+                    }
+                    else{
+                        zero.push(num);
+                    }
+                }
+                return zero;
+            }
+
+
+
+        </script>
+
+    </body>
+
+    </html>
